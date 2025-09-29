@@ -235,6 +235,11 @@ impl<'a> PdfPageTextObject<'a> {
         }
     }
 
+    #[inline]
+    pub unsafe fn handle(&self) -> FPDF_PAGEOBJECT {
+        self.object_handle
+    }
+
     /// Returns the text rendering mode for the text contained within this [PdfPageTextObject].
     pub fn render_mode(&self) -> PdfPageTextRenderMode {
         PdfPageTextRenderMode::from_pdfium(
